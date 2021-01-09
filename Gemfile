@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'webpacker', '~> 5.0'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
