@@ -9,7 +9,11 @@
       <div class="caption">
         <div class="event-description">
           <h3><%= link_to event.title, event_path(event) %></h3>
-          <h3><small><%= event.datetime %></small></h3>
+          <h3>
+            <%# Для перевода времени в русский формат используем I18n %>
+            <%# Формат при этом используется из гема russian %>
+            <small><%= l event.datetime, format: :short %></small>
+          </h3>
           <div class="buffer-both"><%= event.address %></div>
         </div>
       </div>

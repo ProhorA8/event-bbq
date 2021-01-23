@@ -2,6 +2,15 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
+
+gem 'devise'
+
+# Гем для перевода сообщений девайса
+gem 'devise-i18n'
+
+# Гем с русскими форматами (времени и пр.)
+gem 'russian'
+
 gem 'rails', '~> 6.1.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
