@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_pack_tag 'application', media: 'all' %>
   <%= javascript_pack_tag 'application' %>
 
   <!-- For third-generation iPad with high-resolution Retina display: -->
@@ -35,27 +35,31 @@
 
   <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
   <!--[if lt IE 9]>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/frontend"></script>
   <![endif]-->
 </head>
 <body>
 
-<div class="navbar navbar-default navbar-static-top">
+<div class="navbar navbar-dark bg-dark navbar-static-top">
   <div class="container">
-    <%= link_to t('main.name'), root_path, class: 'navbar-brand' %>
-
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
-      <ul class="nav navbar-nav">
+    <div class="navbar-nav">
+      <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="nav navbar-nav justify-content-end ml-auto">
         <% if user_signed_in? %>
-          <li><%= link_to 'Профиль', current_user %></li>
-          <li><%= link_to 'Выйти', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "#{current_user.name}", current_user, class: 'nav-link' %></li>
+          <li><%= link_to t('links.log_off'), destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
         <% else %>
-          <li><%= link_to 'Войти', new_user_session_path %></li>
-          <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+          <li><%= link_to t('links.sign_in'), new_user_session_path, class: 'nav-link' %></li>
+          <li><%= link_to t('links.register'), new_user_registration_path, class: 'nav-link' %></li>
         <% end %>
-        </ul>
-        </div>
-</div>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div class="container">

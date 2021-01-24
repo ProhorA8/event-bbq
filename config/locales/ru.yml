@@ -1,34 +1,174 @@
 ru:
-  # Перевод моделей
   activerecord:
-    # Перевод названия моделей
     models:
       user: 'Пользователь'
       event: 'Событие'
+      subscription: 'Подписка'
+      comment: 'Коментарий'
+      photo: 'Фотография'
 
-    # Перевод названий аттрибутов моделей
     attributes:
       user:
         email: 'Email'
         name: 'Имя'
+        avatar: 'Аватарка'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
+
       event:
         title: 'Название'
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+        pincode: 'Пин-код доступа'
 
-  # Перевод сообщений, которые отправляет контроллер
+      subscription:
+        user_email: 'Email'
+
+      photo:
+        photo: 'Фотография'
+
+    errors:
+      models:
+        subscription:
+          attributes:
+            base:
+              user_created_event: 'Пользователь не может подписаться на свое событие'
+            user_email:
+              user_email_exists: 'Пользователь с таким email уже существует, пожалуйста авторизуйтесь!'
+
   controllers:
     events:
       created: 'Вы создали новое мероприятие'
       updated: 'Вы обновили мероприятие'
       destroyed: 'Вы удалили мероприятие :('
+      wrong_pincode: 'Неверный пин-код!'
     users:
       updated: 'Вы обновили свой профиль'
+    comments:
+      destroyed: 'Комментарий удален'
+      created: 'Ваш комментарий добавлен'
+      error: 'Ошибка с комментарием'
+    subscriptions:
+      created: 'Вы подписаны на это событие'
+      destroyed: 'Участник отписан'
+      error: 'Подписка/отписка не сработала'
+    photos:
+      error: 'Что-то не так с фоткой'
+      created: 'Вы добавили фотографию к событию'
+      destroyed: 'Вы удалили фотку'
 
-  # Перевод названия приложения и компании-разработчика
-  main:
+  app:
     name: 'Шашлыки'
     company: 'Хороший программист'
+
+  links:
+    register: 'Зарегистрироваться'
+    sign_in: 'Войти'
+    privacy_policy: 'политикой конфиденциальности'
+    forgot_password: 'Забыли пароль?'
+    send_me: 'Отправить мне инструкции по сбросу пароля'
+    change: 'Изменить'
+    сreate_event: 'Создать событие'
+    save: 'Сохранить'
+    to_return: 'Вернуться'
+    log_off: 'Выйти'
+    сhange_password: 'Сменить пароль'
+    edit_profile: 'Редактировать профиль'
+    update: 'Обновить'
+    delete_profile: 'Удалить мой аккаунт'
+    delete_event: 'Удалить событие'
+    load: 'Загрузить'
+    to_home: 'На главную'
+    to_home_errors: 'на главную страницу'
+    sign_in_with: 'Войти с помощью %{provider}'
+
+  questions:
+    are_you_sure: 'Вы уверены?'
+    delete_photo: 'Удалить фотографию?'
+
+  devise:
+    characters_minimum: 'минимальное количесвто символов'
+
+  heading:
+    forgot_your_password: 'Забыли свой пароль?'
+    еdit_profile: 'Редактировать профиль'
+    delete_account: 'Удалить аккаунт?'
+    delete_event: 'Удалить собыите?'
+    registration: 'Регистрация'
+    come_in: 'Войти'
+    editing_event: 'Редактирование события'
+    event: 'События'
+    new_event: 'Новое событие'
+    еdit_password: 'Редактировать пароль'
+    organized: 'Организовал:'
+    calling: 'Зовет'
+    i_will_go: 'Я пойду!'
+    will_go: 'Пойдут!'
+    privacy_policy: 'Политика конфиденциальности'
+    change_password: 'Изменить пароль'
+    access_only_by_pin_code: 'Доступ только по пин-коду'
+
+  inscription:
+    user_has_not_yet_organized_any_events: 'Пользователь пока не организовал ни одного события'
+    or: 'или'
+    i_agree: 'Я согласен'
+    privacy_policy_manifest: 'Наш сайт может использовать Вашу почту для показа другим пользователям, в
+    их личных письмах, при подписке или добавлении фотографии к событию!'
+    pincode: 'Пин-код'
+
+  errors:
+    one: "В вашей форме %{count} ошибка"
+    few: "В вашей форме %{count} ошибки"
+    many: "В вашей форме %{count} ошибок"
+    not-found:
+      title: 'К сожалению страница не найдена.'
+      messeges: 'Вы можете смириться или перейти на'
+
+  comments:
+    comment:
+      destroy_confirm: 'Вы уверены, что хотите удалить этот комменатрий?'
+      body: 'Комментарий'
+      send: 'Отправить'
+      user_name: 'Ваше имя'
+
+  subscriptions:
+    subscription:
+      destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+      subscribe: 'Подписаться'
+      user_name: 'Ваше имя'
+      user_email: 'Ваш email'
+
+  photo:
+    added: 'Добавил'
+
+  event_mailer:
+    comment:
+      title: 'Новый комментарий'
+      author: 'Автор'
+      event: 'Событие'
+      will_take_place: 'Состоится'
+      consisted: 'Состоялось'
+      owner: 'Организатор'
+      subject: "Новый комментарий для события %{event}"
+    subscription:
+      title: 'Новая подписка'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+      subject: "Новая подписка для события %{event}"
+    photo:
+      title: 'Новая фотография'
+      author: 'Автор'
+      event: 'Событие'
+      will_take_place: 'Состоится'
+      consisted: 'Состоялось'
+      owner: 'Организатор'
+      photo: 'Фотография'
+      subject: "Новая фотография для события %{event}"
+
+  pundit:
+    not_authorized: 'У вас нет прав доступа!'
