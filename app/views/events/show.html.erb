@@ -16,8 +16,12 @@
 
           <% if current_user_can_edit?(@event) %>
             <div class="buffer-top">
-              <%= link_to 'Изменить', edit_event_path(@event),
+              <%= link_to t('links.change'), edit_event_path(@event),
                           class: 'btn btn-primary buffer-both' %>
+
+              <%= link_to t('links.delete_event'), event_path(@event),
+                          data: {confirm: t('questions.are_you_sure')},
+                          method: :delete, class: 'btn btn-danger ml-2' %>
             </div>
           <% end %>
         </div>
