@@ -74,6 +74,7 @@ ru:
     to_return: 'Вернуться'
     log_off: 'Выйти'
     сhange_password: 'Сменить пароль'
+    confirmation_password: 'Пароль подтверждения'
     edit_profile: 'Редактировать профиль'
     update: 'Обновить'
     delete_profile: 'Удалить мой аккаунт'

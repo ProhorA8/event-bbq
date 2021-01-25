@@ -1,0 +1,41 @@
+<h2 class="border-bottom text-dark"><%= t('heading.еdit_password') %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
+  <%= render partial: 'partials/form_errors', locals: {model: @user} %>
+  <div class="col-md-6 mt-4">
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control' %>
+      <small class="form-text text-muted"><%= t('devise.characters_minimum') %> <%= @minimum_password_length %></small>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :current_password %>
+      <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit t('links.update'), class: 'btn btn-warning' %>
+    </div>
+<% end %>
+
+<h3 class="py-4"><%= t('heading.delete_account') %></h3>
+
+<%= button_to t('links.delete_profile'), registration_path(resource_name),
+              data: {confirm: t('questions.are_you_sure')},
+              method: :delete, class: 'btn btn-danger' %>
+
+<div class="py-4">
+  <%= link_to t('links.to_return'), :back %>
+</div>
+</div>
