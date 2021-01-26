@@ -1,0 +1,19 @@
+<%= form_for [@event, comment] do |f| %>
+  <%= render partial: 'partials/form_errors', locals: {model: comment} %>
+
+  <% unless user_signed_in? %>
+    <div class="form-group">
+      <%= f.label :user_name, t('comments.comment.user_name') %>
+      <%= f.text_field :user_name, class: 'form-control' %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :body, t('comments.comment.body') %>
+    <%= f.text_area :body, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t('comments.comment.send'), class: 'btn btn-primary' %>
+  </div>
+<% end %>
