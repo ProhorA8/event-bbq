@@ -1,6 +1,6 @@
 class Subscription < ApplicationRecord
   belongs_to :event
-  belongs_to :user
+  belongs_to :user, optional: true
 
   validates :event, presence: true
 
@@ -15,6 +15,7 @@ class Subscription < ApplicationRecord
   validates :user_email, uniqueness: {scope: :event_id}, unless: -> { user.present? }
 
   validate :user_created_event
+  validate :user_email_exists, unless: -> { user.present? }
 
   # переопределяем
   # если есть юзер, выдаем его имя, если нет – дергаем исходный переопределенный метод
@@ -38,5 +39,9 @@ class Subscription < ApplicationRecord
 
   def user_created_event
     errors.add(:base, :user_created_event) if event.user == user
+  end
+
+  def user_email_exists
+    errors.add(:user_email, :user_email_exists) if User.exists?(email: user_email)
   end
 end
