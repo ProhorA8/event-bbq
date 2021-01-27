@@ -47,23 +47,27 @@
         <h4><%= t('heading.calling') %></h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>
       </div>
-      <div class="event-subscriptions">
-        <h4><%= t('heading.will_go') %></h4>
-        <div>
-          <p>
-            <%= render partial: 'subscriptions/subscription',
-                       collection: @event.subscriptions.except(@new_subscription) %>
-          </p>
+      <% if @event.subscriptions.exists? %>
+        <div class="event-subscriptions">
+          <h4><%= t('heading.will_go') %></h4>
+          <div>
+            <p>
+              <%= render partial: 'subscriptions/subscription',
+                         collection: @event.subscriptions.except(@new_subscription) %>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="event-subscription-form">
-        <h4><%= t('heading.i_will_go') %></h4>
-        <div>
-          <%= render partial: 'subscriptions/form', locals: {
-              subscription: @new_subscription || @event.subscriptions.build
-          } %>
+      <% end %>
+      <% unless current_user_can_edit?(@event) %>
+        <div class="event-subscription-form">
+          <h4><%= t('heading.i_will_go') %></h4>
+          <div>
+            <%= render partial: 'subscriptions/form', locals: {
+                subscription: @new_subscription || @event.subscriptions.build
+            } %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
