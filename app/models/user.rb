@@ -17,6 +17,9 @@ class User < ApplicationRecord
   # При создании нового юзера (create), перед валидацией объекта выполнить метод set_name
   before_validation :set_name, on: :create
 
+  # Добавляем аплоадер аватарок, чтобы заработал carrierwave
+  mount_uploader :avatar, AvatarUploader
+
   private
 
   # Задаем юзеру случайное имя, если оно пустое
