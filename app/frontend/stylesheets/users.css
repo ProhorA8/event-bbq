@@ -2,3 +2,7 @@
   margin-top: -2px;
   height: 20px;
 }
+
+.avatar-profile {
+  max-width: 300px;
+}
