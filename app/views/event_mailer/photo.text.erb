@@ -3,9 +3,9 @@
 
 <%= t('event_mailer.photo.author') %> <%= @name %>
 <%= t('event_mailer.photo.photo') %>
-<%= link_to image_tag(@photo.photo.url), @event %>
+<%= link_to image_tag(@photo.photo.thumb.url), @photo.photo.url %>
 ----------------------
 
-<%= t('event_mailer.photo.event') %><%= @event.title %>
+<%= t('event_mailer.photo.event') %><%= link_to @event.title, @event %>
 <%= Time.now > @event.datetime ? t('.consisted') : t('.will_take_place') %> <%= l(@event.datetime, format: :short) %>
 <%= t('event_mailer.photo.owner') %><%= @event.user.name %>

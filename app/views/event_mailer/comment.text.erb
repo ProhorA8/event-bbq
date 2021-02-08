@@ -1,11 +1,11 @@
-<%= t '.title' %>
+<%= t('.title') %>
 ----
 
 <%= @comment.body %>
 
-<%= t '.author' %>: <%= @comment.user_name %>
+<%= t('.author') %>: <%= @comment.user_name %>
 
 --------------------------------
-<%= t '.event' %>: <%= @event.title %>
-<%= t '.will_take_place' %>: <%= l @event.datetime %>
-<%= t '.owner' %>: <%= @event.user.name %>
+<%= t('.event') %>: <%= link_to @event.title, @event %>
+<%= t('.will_take_place') %>: <%= l(@event.datetime, format: :short) %>
+<%= t('.owner') %>: <%= @event.user.name %>
