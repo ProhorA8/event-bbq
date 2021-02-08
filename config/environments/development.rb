@@ -76,17 +76,4 @@ Rails.application.configure do
 
   # чтобы у Devise правильно работала рассылка
   config.action_mailer.default_url_options = {:host => 'localhost:3000'}
-
-  # отправка почты по протоколу SMTP
-  config.action_mailer.delivery_method = :smtp
-
-  # Настройки для работы через GMail аккаунт
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: '587',
-    user_name: 'ваш тестовый ящик', # не используйте для тестов свои реальные ящики
-    password: 'пароль от него', # не храните здесь пароль!
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
 end
