@@ -4,6 +4,7 @@ class Photo < ApplicationRecord
 
   validates :event, presence: true
   validates :user, presence: true
+  validates :photo, presence: true
 
   # Добавляем аплоадер фотографий, чтобы заработал carrierwave
   mount_uploader :photo, PhotoUploader
