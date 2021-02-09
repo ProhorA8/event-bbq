@@ -11,6 +11,13 @@
       <%= f.label :user_email, t('subscriptions.subscription.user_email') %>
       <%= f.text_field :user_email, class: 'form-control' %>
     </div>
+
+    <div class="form-group form-check">
+      <%= f.check_box :access_email, class: 'form-check-input' %>
+      <%= f.label :access_email, t('inscription.i_agree'), class: 'form-check-label' %>
+      <%= link_to t('links.privacy_policy'), pages_politika_path, target: '_blank', rel: 'noreferrer' %>
+
+    </div>
   <% end %>
 
   <div class="actions">

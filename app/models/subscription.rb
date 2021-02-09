@@ -2,6 +2,8 @@ class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
+  before_validation :access_email
+
   validates :event, presence: true
 
   # проверки выполняются только если user не задан (незареганные приглашенные)
@@ -17,8 +19,15 @@ class Subscription < ApplicationRecord
   validate :user_created_event
   validate :user_email_exists, unless: -> { user.present? }
 
-  # переопределяем
-  # если есть юзер, выдаем его имя, если нет – дергаем исходный переопределенный метод
+  def access_email
+    if user.present?
+      user.access_email
+    else
+      super
+    end
+  end
+
+  # переопределяем если есть юзер, выдаем его имя, если нет – дергаем исходный переопределенный метод
   def user_name
     if user.present?
       user.name
@@ -27,8 +36,7 @@ class Subscription < ApplicationRecord
     end
   end
 
-  # переопределяем
-  # если есть юзер, выдаем его email, если нет – дергаем исходный переопределенный метод
+  # переопределяем если есть юзер, выдаем его email, если нет – дергаем исходный переопределенный метод
   def user_email
     if user.present?
       user.email

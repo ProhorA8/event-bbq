@@ -28,6 +28,6 @@ class UsersController < ApplicationController
 
   # Пропишем, что разрешено передавать в params
   def user_params
-    params.require(:user).permit(:name, :email, :avatar)
+    params.require(:user).permit(:name, :email, :avatar, :access_email)
   end
 end

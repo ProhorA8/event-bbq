@@ -17,6 +17,13 @@
     <%= f.file_field :avatar %>
   </div>
 
+<!--  возможность поменять своё решение в любой момент-->
+  <div class="form-group form-check">
+    <%= f.check_box :access_email, class: 'form-check-input' %>
+    <%= f.label :access_email, t('inscription.i_agree'), class: 'form-check-label' %>
+    <%= link_to t('links.privacy_policy'), pages_politika_path, target: "_blank", rel: "noreferrer" %>
+  </div>
+
   <div class="actions">
     <%= f.submit t('links.save'), class: 'btn btn-primary' %>
   </div>
