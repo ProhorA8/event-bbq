@@ -18,6 +18,9 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'jquery-rails'
 
+# Предварительный просмотр электронной почты в браузере по умолчанию вместо отправки
+gem 'letter_opener', :group => :development
+
 gem 'rails', '~> 6.1.0'
 
 gem 'rails-i18n', '~> 6.0.0'
