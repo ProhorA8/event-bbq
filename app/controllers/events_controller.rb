@@ -66,19 +66,19 @@ class EventsController < ApplicationController
 
     # Если нам передали код и он верный, сохраняем его в куки этого юзера
     # Так юзеру не нужно будет вводить пин-код каждый раз
-    if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
-      cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
+    if params[:pincode].present? && @event.pincode_valid?(params[:pincode]) && signed_in?
+      cookies.permanent["events_#{@event.id}_pincode_#{current_user.id}"] = params[:pincode]
     end
 
     # Проверяем, верный ли в куках пин-код
     # Если нет — ругаемся и рендерим форму ввода пин-кода
-    pincode = cookies.permanent["events_#{@event.id}_pincode"]
-    unless @event.pincode_valid?(pincode)
-      if params[:pincode].present?
-        flash.now[:alert] = I18n.t('controllers.events.wrong_pincode')
-      end
-      render 'password_form'
-    end
+    pincode = cookies.permanent["events_#{@event.id}_pincode_#{current_user.id}"] if signed_in?
+    pincode = params[:pincode] unless signed_in?
+
+    return if @event.pincode_valid?(pincode)
+
+    flash.now[:alert] = I18n.t('controllers.events.wrong_pincode') if params[:pincode].present?
+    render 'password_form'
   end
 
   def set_current_user_event
