@@ -11,6 +11,9 @@ gem 'devise'
 # Гем для перевода сообщений девайса
 gem 'devise-i18n'
 
+# для загрузки переменных среды из .env в ENV в процессе разработки
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+
 # Гем для работы carrierwave с хранилищем Amazon S3
 gem 'fog-aws'
 
@@ -19,7 +22,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
 
 # Предварительный просмотр электронной почты в браузере по умолчанию вместо отправки
-gem 'letter_opener', :group => :development
+gem 'letter_opener', group: :development
 
 gem 'rails', '~> 6.1.0'
 

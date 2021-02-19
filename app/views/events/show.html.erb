@@ -31,9 +31,10 @@
 
   <div class="row">
     <div class="col-md-8">
+      <div id="map" data-address="<%= @event.address %>"></div>
       <div class="event-photos">
         <%# Выводим все фотографии события %>
-        <div class="event-photos-gallery">
+        <div class="event-photos-gallery py-2">
           <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
         </div>
 

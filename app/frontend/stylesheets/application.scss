@@ -3,7 +3,7 @@
 @import 'users';
 @import '~@fortawesome/fontawesome-free';
 
-/* Buffers */
+// отступы
 .buffer-top {
   margin-top: 20px;
 }
@@ -17,14 +17,14 @@
   margin-bottom: 20px;
 }
 
-/* Avatars for users & events */
+// аватар для users & events
 .img-icon, .img-icon-small {
   height: 50px;
   width: auto;
   border-radius: 50%;
 }
 
-/* Thumbnails for events/index */
+// эскизы events/index
 .thumbnail {
   position: relative;
   background: transparent;
@@ -42,4 +42,11 @@
 
 .thumbnail-inner {
   padding: 20px 4px 4px;
+}
+
+// карта
+#map {
+  width: 100%;
+  height: 200px;
+  touch-action: auto
 }

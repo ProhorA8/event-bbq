@@ -5,7 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-  <title><%= content_for?(:title) ? yield(:title) : "Bbq" %></title>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=<%= ENV['SECRET_KEY'] %>&lang=ru_RU" type="text/javascript"></script>
+
+  <title><%= content_for?(:title) ? yield(:title) : 'Bbq' %></title>
+
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
