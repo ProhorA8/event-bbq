@@ -1,9 +1,3 @@
-// Код, который цепляет плагин lightbox к объектам с аттрибутом data-toggle="lightbox"
-// $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
-//     event.preventDefault();
-//     $(this).ekkoLightbox();
-// });
-
 // Скрываем форму добавления фотографии и показываем её по клику на ссылку
 $(function(){
     $('.event-photo-form').hide();
