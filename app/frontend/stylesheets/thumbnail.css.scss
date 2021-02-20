@@ -1,0 +1,22 @@
+/* Thumbnails for events/index */
+.thumbnail {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 5px;
+
+  h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 0;
+    margin-bottom: .3em;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.thumbnail-inner {
+  padding: 20px 4px 4px;
+}

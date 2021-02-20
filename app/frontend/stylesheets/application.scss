@@ -1,7 +1,9 @@
+@import '~@fortawesome/fontawesome-free';
 @import '~bootstrap/scss/bootstrap.scss';
 @import 'events.css';
+@import 'lightbox.min';
+@import 'thumbnail.css.scss';
 @import 'users';
-@import '~@fortawesome/fontawesome-free';
 
 // отступы
 .buffer-top {

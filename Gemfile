@@ -34,6 +34,9 @@ gem 'rmagick'
 # Гем с русскими форматами (времени и пр.)
 gem 'russian'
 
+# Автоматически используется для сжатия CSS
+gem 'sass-rails'
+
 gem 'twitter-bootstrap-rails'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

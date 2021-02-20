@@ -34,12 +34,17 @@
       <div id="map" data-address="<%= @event.address %>"></div>
       <div class="event-photos">
         <%# Выводим все фотографии события %>
-        <div class="event-photos-gallery py-2">
+        <div class="event-photos-gallery py-2 border-bottom">
           <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
         </div>
 
+        <%# Кнопка вывода формы добавления фотографии %>
+        <div class="buffer-both">
+          <%= link_to t('heading.add_photo'), '#', class: 'event-photo-form-link' %>
+        </div>
+
         <%# Рисуем форму для добавления новой фотографии %>
-        <div class="event-photo-form">
+        <div class="event-photo-form pt-2">
           <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
         </div>
       </div>
