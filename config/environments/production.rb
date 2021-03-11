@@ -101,7 +101,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Базовый урл сайта, для генерации правильных ссылок в письмах
-  config.action_mailer.default_url_options = { host: 'events-to-bbq.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'event-by.ru' }
 
   # Вываливать ли посетителю сайта ошибки при отправке писем
   config.action_mailer.raise_delivery_errors = false
@@ -119,7 +119,7 @@ Rails.application.configure do
     authentication: :plain,
     user_name: ENV['SENDGRID_USERNAME'],
     password: ENV['SENDGRID_PASSWORD'],
-    domain: 'heroku.com',
+    domain: 'event-by.ru',
     enable_starttls_auto: true
   }
 end
