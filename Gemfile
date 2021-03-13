@@ -73,5 +73,6 @@ group :development do
   gem 'capistrano-bundler', '~> 2.0.1'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
+  gem 'rspec-rails', '~> 4.0.1'
   gem 'web-console', '>= 4.1.0'
 end

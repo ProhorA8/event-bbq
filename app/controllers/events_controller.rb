@@ -1,21 +1,21 @@
 class EventsController < ApplicationController
   # Встроенный в девайз фильтр - посылает незалогиненного пользователя
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: %i[show index]
 
-  # Задаем объект @event для экшена show
-  before_action :set_event, only: [:show]
-
-  # Задаем объект @event от текущего юзера для других действий
-  before_action :set_current_user_event, only: [:edit, :update, :destroy]
+  # Задаем объект @event для экшенов
+  before_action :set_event, only: %i[show edit update destroy]
 
   # Проверка пин-кода перед отображением события
   before_action :password_guard!, only: [:show]
+
+  after_action :verify_authorized, only: %i[show edit update destroy]
 
   def index
     @events = Event.all
   end
 
   def show
+    authorize @event
     # Болванка модели для формы добавления комментария
     @new_comment = @event.comments.build(params[:comment])
 
@@ -31,6 +31,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    authorize @event
   end
 
   def create
@@ -44,6 +45,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    authorize @event
     if @event.update(event_params)
       redirect_to @event, notice: I18n.t('controllers.events.updated')
     else
@@ -52,6 +54,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    authorize @event
     @event.destroy
     redirect_to events_url, notice: I18n.t('controllers.events.destroyed')
   end
