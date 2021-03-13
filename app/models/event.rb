@@ -6,13 +6,11 @@ class Event < ApplicationRecord
 
   # У события много подписчиков (объекты User), через таблицу subscriptions, по ключу user_id
   has_many :subscribers, through: :subscriptions, source: :user
-
   has_many :photos
 
   validates :title, presence: true, length: {maximum: 255}
   validates :address, presence: true
   validates :datetime, presence: true
-  validates :user, presence: true
 
   def pincode_valid?(pin2chek)
     pincode == pin2chek

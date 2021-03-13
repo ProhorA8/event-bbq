@@ -6,12 +6,13 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
 
   # Проверка пин-кода перед отображением события
-  before_action :password_guard!, only: [:show]
+  before_action :password_guard!, only: :show
 
-  after_action :verify_authorized, only: %i[show edit update destroy]
+  after_action :verify_authorized, only: %i[show edit create update destroy]
+  after_action :verify_policy_scoped, only: :index
 
   def index
-    @events = Event.all
+    @events = policy_scope(Event)
   end
 
   def show
@@ -36,6 +37,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
+    authorize @event
 
     if @event.save
       redirect_to @event, notice: I18n.t('controllers.events.created')
